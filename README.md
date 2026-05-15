@@ -180,13 +180,11 @@ Python 3.8 or higher
 pip package manager
 ```
 
-@misc{emg-gesture-recognition-2025,
+
   author = SARVENAZ ASHOORI,
-  title = {EMG Gesture Recognition using Random Forest and SVM},
-  year = {2025},
-  publisher = {GitHub},
-  url = {https://github.com/[your-username]/emg-gesture-recognition-ml}
-}
+  title = {EMG Gesture Recognition using Random Forest and SVM}
+  year = {2025}
+ 
 
 
 
