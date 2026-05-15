@@ -33,6 +33,20 @@ Controlling robotic prostheses and assistive devices intuitively remains a chall
 
 *Figure 2: Raw EMG signals for the "Hand at Rest" gesture (first 4 channels). Different gestures produce distinct muscle activation patterns.*
 
+## 📈 Results
+
+### Accuracy Comparison
+
+![Accuracy Comparison](img/accuracy_comparison.png)
+
+*Figure 3: Model accuracy comparison. Random Forest achieves 96.1% test accuracy, outperforming SVM at 93.4%.*
+
+### Confusion Matrix
+
+![Confusion Matrix](img/confusion_matrix.png)
+
+*Figure 4: Confusion matrix for Random Forest classifier. Rest and Flexion gestures are classified perfectly (27/27 and 25/25 correct).*
+
 ## 🦾 Robotics Applications
 
 | Application | Description |
