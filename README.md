@@ -62,3 +62,49 @@ Controlling robotic prostheses and assistive devices intuitively remains a chall
 ## 🔧 Methodology
 
 ### Pipeline Overview
+
+
+### 1. Preprocessing & Windowing
+
+- Remove unlabeled data (Class 0)
+- Segment continuous signal into **200-sample non-overlapping windows** (1 second of data)
+- Keep only windows containing a single gesture label
+- **Result:** 758 valid windows
+
+### 2. Feature Extraction
+
+For each of the 8 EMG channels, extract 4 time-domain features:
+
+| Feature | Formula | Description |
+|---------|---------|-------------|
+| **MAV** (Mean Absolute Value) | `MAV = (1/N) Σ \|xᵢ\|` | Signal amplitude |
+| **RMS** (Root Mean Square) | `RMS = √[(1/N) Σ xᵢ²]` | Signal power |
+| **Variance** | `Var = (1/N) Σ (xᵢ - μ)²` | Signal spread |
+| **WL** (Waveform Length) | `WL = Σ \|xᵢ₊₁ - xᵢ\|` | Signal complexity |
+
+**Total Features:** 8 channels × 4 features = **32 features per window**
+
+### 3. Models
+
+| Model | Configuration | Key Strength |
+|-------|---------------|--------------|
+| **SVM** | RBF kernel, grid search over C and γ | Maximum margin separation |
+| **Random Forest** | 200 estimators, bagging, random features | Ensemble robustness |
+
+### 4. Evaluation
+
+- Train/Test split: 80/20 (stratified)
+- 5-fold Cross-Validation
+- Metrics: Accuracy, Precision, Recall, F1-score, Confusion Matrix
+
+## 📈 Results
+
+### Accuracy Comparison
+
+| Model | Test Accuracy | Cross-Validation (5-fold) |
+|-------|---------------|---------------------------|
+| SVM | 93.4% | — |
+| **Random Forest** | **96.1%** | **88.1%** |
+
+### Confusion Matrix (Random Forest)
+
