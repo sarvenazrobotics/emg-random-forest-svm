@@ -47,6 +47,32 @@ Controlling robotic prostheses and assistive devices intuitively remains a chall
 
 *Figure 4: Confusion matrix for Random Forest classifier. Rest and Flexion gestures are classified perfectly (27/27 and 25/25 correct).*
 
+**Most Confused Pairs:**
+| Confused Pair | Errors |
+|---------------|--------|
+| Fist ↔ Wrist Extension | 1 |
+| Extension ↔ Radial Deviation | 1 |
+| Flexion ↔ Ulnar Deviation | 2 |
+
+### Feature Importance
+
+![Feature Importance](img/feature_importance.png)
+
+*Figure 5: Top 15 most important features. RMS and MAV features dominate, with Channels 1-3 (anterior forearm) contributing most significantly.*
+
+**Top 5 Features:**
+| Rank | Feature | Importance |
+|------|---------|------------|
+| 1 | Channel 2 - RMS | 0.087 |
+| 2 | Channel 1 - RMS | 0.082 |
+| 3 | Channel 2 - MAV | 0.076 |
+| 4 | Channel 3 - RMS | 0.072 |
+| 5 | Channel 1 - MAV | 0.069 |
+
+---
+
+
+
 ## 🦾 Robotics Applications
 
 | Application | Description |
