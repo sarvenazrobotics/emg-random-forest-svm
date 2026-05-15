@@ -18,6 +18,15 @@ This project implements a complete machine learning pipeline for recognizing han
 
 Controlling robotic prostheses and assistive devices intuitively remains a challenge in human-robot interaction. This project addresses the problem by building classifiers that translate raw EMG signals into gesture commands, enabling natural control of robotic hands without manual switches or voice commands.
 
+
+## 📊 Exploratory Data Analysis
+
+### Class Distribution
+
+![Class Distribution](.img/class_distribution.png)
+
+*Figure 1: Distribution of samples across 7 hand gestures. Classes are relatively balanced (~28K-29K samples each).*
+
 ## 🦾 Robotics Applications
 
 | Application | Description |
