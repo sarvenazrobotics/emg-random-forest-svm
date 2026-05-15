@@ -27,6 +27,12 @@ Controlling robotic prostheses and assistive devices intuitively remains a chall
 
 *Figure 1: Distribution of samples across 7 hand gestures. Classes are relatively balanced (~28K-29K samples each).*
 
+### Raw EMG Signals
+
+![EMG Signals](img/emg_signals.png)
+
+*Figure 2: Raw EMG signals for the "Hand at Rest" gesture (first 4 channels). Different gestures produce distinct muscle activation patterns.*
+
 ## 🦾 Robotics Applications
 
 | Application | Description |
