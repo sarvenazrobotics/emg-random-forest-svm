@@ -108,3 +108,24 @@ For each of the 8 EMG channels, extract 4 time-domain features:
 
 ### Confusion Matrix (Random Forest)
 
+
+**Most Confused Pairs:**
+- Fist ↔ Wrist Extension (1 error)
+- Extension ↔ Radial Deviation (1 error)
+- Flexion ↔ Ulnar Deviation (2 errors)
+
+### Feature Importance (Top 5)
+
+| Rank | Feature | Importance Score |
+|------|---------|------------------|
+| 1 | Channel 2 - RMS | 0.087 |
+| 2 | Channel 1 - RMS | 0.082 |
+| 3 | Channel 2 - MAV | 0.076 |
+| 4 | Channel 3 - RMS | 0.072 |
+| 5 | Channel 1 - MAV | 0.069 |
+
+**Key Insight:** RMS and MAV features dominate, confirming that signal amplitude carries the most discriminative information. Channels 1-3 (anterior forearm/flexor muscles) are most important.
+
+### Generalization Gap
+
+
