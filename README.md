@@ -128,4 +128,57 @@ For each of the 8 EMG channels, extract 4 time-domain features:
 
 ### Generalization Gap
 
+**Most Confused Pairs:**
+- Fist ↔ Wrist Extension (1 error)
+- Extension ↔ Radial Deviation (1 error)
+- Flexion ↔ Ulnar Deviation (2 errors)
+
+### Feature Importance (Top 5)
+
+| Rank | Feature | Importance Score |
+|------|---------|------------------|
+| 1 | Channel 2 - RMS | 0.087 |
+| 2 | Channel 1 - RMS | 0.082 |
+| 3 | Channel 2 - MAV | 0.076 |
+| 4 | Channel 3 - RMS | 0.072 |
+| 5 | Channel 1 - MAV | 0.069 |
+
+**Key Insight:** RMS and MAV features dominate, confirming that signal amplitude carries the most discriminative information. Channels 1-3 (anterior forearm/flexor muscles) are most important.
+
+### Generalization Gap
+
+## 🤖 Why Random Forest Won
+
+| Factor | Explanation |
+|--------|-------------|
+| **Built-in Regularization** | Bootstrap sampling reduces variance; random features prevent overfitting |
+| **Handles Non-Linearity** | Decision trees model complex EMG patterns without kernel tuning |
+| **Robust to Noise** | Ensemble averaging cancels biological EMG noise |
+| **Interpretable** | Feature importance reveals which channels matter most |
+
+## 🚀 Future Work
+
+### Short Term
+- Collect more subject data to reduce the 8% generalization gap
+- Data augmentation (noise injection, time warping)
+- Further hyperparameter optimization
+
+### Long Term (Deep Learning)
+- 1D CNN on raw EMG signals (no manual feature extraction)
+- RNN/LSTM for capturing temporal dependencies
+- Transformer models for long-range patterns
+- Real-time deployment on edge devices
+
+
+
+
+## 🔧 Installation & Usage
+
+### Prerequisites
+```bash
+Python 3.8 or higher
+pip package manager
+```
+
+
 
