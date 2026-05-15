@@ -200,7 +200,57 @@ For each of the 8 EMG channels, extract 4 time-domain features:
 
 **Key Insight:** RMS and MAV features dominate, confirming that signal amplitude carries the most discriminative information. Channels 1-3 (anterior forearm/flexor muscles) are most important.
 
-### Generalization Gap
+## 🤖 Classifier Comparison
+
+| Aspect | Random Forest | SVM (RBF Kernel) |
+|--------|---------------|------------------|
+| **Type** | Ensemble (Bagging) | Kernel Machine |
+| **Number of models** | 200 decision trees | 1 hyperplane |
+| **Training Time** | ~2.5 seconds | ~1.8 seconds |
+| **Inference Time** | ~0.05 seconds | ~0.03 seconds |
+| **Test Accuracy** | **96.1%** | 93.4% |
+| **5-fold CV Accuracy** | 88.1% | — |
+| **Precision (macro avg)** | 0.96 | 0.94 |
+| **Recall (macro avg)** | 0.96 | 0.93 |
+| **F1-score (macro avg)** | 0.96 | 0.93 |
+
+### Hyperparameters
+
+| Parameter | Random Forest | SVM |
+|-----------|---------------|-----|
+| n_estimators | 200 | — |
+| max_depth | Optimized (10-20) | — |
+| min_samples_split | Optimized (2-10) | — |
+| C (regularization) | — | Optimized (0.1-100) |
+| γ (gamma) | — | Optimized (0.01-1) |
+| Kernel | — | RBF |
+
+### Strengths & Weaknesses
+
+| Aspect | Random Forest | SVM |
+|--------|---------------|-----|
+| **Handles non-linearity** | ✅ Yes (decision trees) | ✅ Yes (RBF kernel) |
+| **Robust to noise** | ✅ Very robust | ⚠️ Sensitive |
+| **Interpretability** | ✅ High (feature importance) | ❌ Low (black box) |
+| **Works with small data** | ✅ Yes | ⚠️ Needs tuning |
+| **Memory usage** | ⚠️ Moderate (200 trees) | ✅ Low (support vectors only) |
+| **Training speed** | ⚠️ Slower (200 trees) | ✅ Fast |
+| **Hyperparameter tuning** | ✅ Simple (3-4 params) | ⚠️ Complex (C, γ) |
+
+### When to Use Which?
+
+| Scenario | Recommended | Reason |
+|----------|-------------|--------|
+| **Need high accuracy** | Random Forest | 96.1% > 93.4% |
+| **Need interpretability** | Random Forest | Feature importance available |
+| **Very small dataset (<500 samples)** | SVM | Less prone to overfitting |
+| **Real-time embedded systems** | Both | Both <100ms inference |
+| **Noisy data (EMG signals)** | Random Forest | Ensemble averaging cancels noise |
+| **Limited memory** | SVM | Stores only support vectors |
+
+### Verdict
+
+> *"Random Forest is recommended for EMG gesture recognition due to its higher accuracy (96.1%), built-in feature importance, and robustness to biological noise. SVM serves as a strong baseline with competitive performance (93.4%) and faster training."*
 
 ## 🤖 Why Random Forest Won
 
