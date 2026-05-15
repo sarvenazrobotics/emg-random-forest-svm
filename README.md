@@ -23,7 +23,7 @@ Controlling robotic prostheses and assistive devices intuitively remains a chall
 
 ### Class Distribution
 
-![Class Distribution](.img/class_distribution.png)
+![Class Distribution](img/class_distribution.png)
 
 *Figure 1: Distribution of samples across 7 hand gestures. Classes are relatively balanced (~28K-29K samples each).*
 
